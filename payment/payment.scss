@@ -1,0 +1,27 @@
+page-payment, page-paymentinfo {
+    .card-list.nt-product {
+        .card-item {
+            transition: all 0.2s;
+            border-left: 0 solid #22BD4E;
+
+            .thumbnail.is-img {
+                margin-top: 13px;
+                width: 35px;
+            }
+
+            &[data-selection="true"] {
+                border-left: 10px solid #22BD4E;
+            }
+        }
+    }
+
+    .form-btn {
+        margin: 10px 20px;
+
+        .nt-btn {
+            padding-left: 15px;
+            padding-right: 15px;
+            min-width: 100px;
+        }
+    }
+}

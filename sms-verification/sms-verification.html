@@ -1,0 +1,55 @@
+<ion-content class="nt-form inverse">
+  
+    <div padding>
+      <div class="logo-box" padding> <!-- align="center"-->
+        <img class="logo" src="assets/icon/logo_alt_white.png"/> <!-- width="340px" height="190px" -->
+      </div>
+    </div>
+    
+    <!-- PAGE VERIFICATION CODE -->
+    <ion-list inset *ngIf="pageType=='verify_code'">
+      
+      <div class="form-note top">
+        <span class="title">Enter a Verification Code</span>
+        <p>A text message with 4 digit verification code
+          was sent to {{phoneNumber}}</p>
+      </div>
+
+      <div class="input-group has-btn">
+        <span class="icon lnr lnr-lock"></span>
+        <ion-item>
+          <ion-input class="text-input" type="text" length="4" placeholder="Verification code"  [(ngModel)]="vcode"></ion-input>
+        </ion-item>
+        <button class="nt-btn blue-gradient" *ngIf="chanceResend>0" (click)="resendCodeVerification()">Resend{{getChanceResend()}}</button>
+      </div>
+      
+      <div class="verify-btn">
+        <button ion-button class="nt-btn green-gradient" block (click)="verifyCode()">Verify</button>
+      </div>
+    
+      <div class="form-note bottom" *ngIf="chanceResend>0">
+        Make a typo? Re-input the phone number <a (click)="enablePage('reset_number')">here</a>.
+      </div>
+        
+    <!-- END OF PAGE VERIFICATION CODE -->
+  </ion-list>
+
+  <ion-list inset *ngIf="pageType=='reset_number'">
+    <div class="form-note top">
+        <span class="title">Enter Your Phone Number</span>
+        <p>Enter your mobile phone number for sms verification.</p>
+      </div>
+
+      <div class="input-group">
+        <span class="icon lnr lnr-phone-handset"></span>
+        <ion-item>
+          <ion-input class="text-input" type="number" length="4" placeholder="0812xxxx"  [(ngModel)]="phoneNumber"></ion-input>
+        </ion-item>
+      </div>
+      
+      <div class="verify-btn">
+        <button ion-button class="nt-btn green-gradient" block (click)="sendVerificationCode()">Send Verification Code</button>
+      </div>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,50 @@
+page-sms-verification {
+    .form-note {        
+        &.top {
+            margin-top: 0;
+            padding: 0 20px;
+            text-align: left;
+
+            .title {
+                font-weight: 500;
+                color: #D1D1D1;
+            }
+
+            p {
+                line-height: 22px;
+                color: #D1D1D1;
+            }
+
+            
+        }
+
+        &.bottom {
+            margin-top: 0;
+            padding: 0 10px;
+            line-height: 22px;
+        }
+    }
+
+    .nt-form {
+        .input-group.has-btn {
+            button {
+                position: absolute;
+                top: 13px;
+                right: 6px;
+                height: 50px;
+                color: #fff;
+                border-radius: 0 3px 3px 0;
+                padding: 0 15px;
+            }
+        }
+
+        ion-item .item-inner input {
+            padding: 15px 90px 15px 45px;
+        }
+
+        .verify-btn {
+            padding: 10px 6px;
+            margin-left: 10px;
+        }
+    }
+}

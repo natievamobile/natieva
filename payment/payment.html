@@ -1,0 +1,63 @@
+<ion-header>
+    <ion-navbar hideBackButton>
+      <ion-buttons left>
+          <button class="back-btn" ion-button (click)="this.navCtrl.pop()"></button>
+      </ion-buttons>
+      <ion-title>
+          <div class="logo-header"> <!-- align="center"-->
+            <img class="logo" src="assets/icon/logo_only_alt_white.png"/> 
+          </div> 
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+  
+<ion-content class="nt-page-content" padding>
+
+  <div class="page-title">
+      <span class="lnr lnr-diamond"></span>
+      <div class="text">Select Payment</div>
+  </div>
+  
+  <div class="card-list nt-product">
+    
+    <div *ngFor="let bank of banks">
+      <ion-card *ngIf="bank.bank_type === 'transfer'"  class="card-item" [attr.data-selection]="idActiveState == bank.id ? 'true' : 'false'" (click)="choosePayment(bank, bank.bank_type )">
+        <div class="thumbnail is-img">
+          <img src="{{bank.logo}}"/>
+        </div>
+        <ion-item class="card-content">
+            <div class="card-title">{{bank.bank_code}}</div>
+            <span>Bank Transfer</span>
+        </ion-item>
+      </ion-card>
+
+      <ion-card *ngIf="bank.bank_type != 'transfer'"  class="card-item" [attr.data-selection]="idActiveState == bank.id ? 'true' : 'false'" (click)="choosePayment(bank, bank.bank_type )">
+        <div class="thumbnail is-img">
+          <img src="{{bank.logo}}"/>
+        </div>
+        <ion-item class="card-content">
+            <div class="card-title">{{bank.bank_name}}</div>
+            <span>Online Payment</span>
+        </ion-item>
+      </ion-card>
+    </div>
+
+    <ion-card class="card-item" [attr.data-selection]="idActiveState == 2331 ? 'true' : 'false'" (click)="tMoneyPayment(null, 'tmoney')">
+      <div class="thumbnail is-img">
+        <img src="{{bank.logo}}"/>
+      </div>
+      <ion-item class="card-content">
+          <div class="card-title">T-Money</div>
+          <span>Online Payment</span>
+      </ion-item>
+    </ion-card>
+  </div>
+
+  <div text-right class="form-btn" *ngIf="shown">
+    <button class="nt-btn green-gradient"  (click)="confirmPayment()">
+      <span text-left>Confirm Payment</span>
+      <span class="lnr lnr-checkmark-circle on-right" text-right></span>
+    </button>
+  </div>
+
+</ion-content>
